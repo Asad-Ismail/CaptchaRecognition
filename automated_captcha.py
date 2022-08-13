@@ -113,6 +113,6 @@ dt=f"{e.day}, {e.month}, {e.year}"
 tm=f"{e.hour}, {e.minute}, {e.second}"
 subject=f"Login Report from {dt}, {tm}, {foundappointment}"
 body=f"Checked Links {checked_links}"
-
+send_message(subject=subject,body=body)
 
 
