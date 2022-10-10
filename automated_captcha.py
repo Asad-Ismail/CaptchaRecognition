@@ -18,9 +18,9 @@ links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locat
 
 def send_message(subject='Nothing',body="Nothing to Update"):
     # Define email sender and receiver
-    email_sender = 'asadismaeel@gmail.com'
-    email_password = 'mgfhptlydaoqhhog'
-    email_receiver = 'asadismaeel@gmail.com'
+    email_sender = 'sender email'
+    email_password = 'password for your email'
+    email_receiver = 'receiver email'
     # Set the subject and body of the email
     #subject = 'Appointment Update'
     #body = """
