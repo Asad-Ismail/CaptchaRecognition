@@ -8,7 +8,8 @@ The contribution of this is work is follows
 
 ## Dataset
 
-You can download the 5 digit Captcha dataset from this link https://drive.google.com/drive/folders/1NS9CBTT-bu7Uegc6t2jn3Xg3m8iUtsZz?usp=sharing
+You can download the 5 digit Captcha dataset from this link 
+https://drive.google.com/drive/folders/1NS9CBTT-bu7Uegc6t2jn3Xg3m8iUtsZz?usp=sharing
 
 ## Model Training
 Please see the train_captcha.ipynb notebook to train the captcha recognition model on the given dataset. The model is quite simple using 2 bidirectional LSTM and CTC loss to recgnize captchas. The model has quite low latency and was able to recognize captchas on online test very accuractely
