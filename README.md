@@ -9,7 +9,7 @@ The contribution of this is work is follows
 ## Dataset
 
 You can download the 5 digit Captcha dataset from this link 
-Few examples od datset is shown below
+Few examples of the dataset are shown below
 <p align="center">
   <img alt="Light" src="vis_imgs/6mn8n.png" width="25%">
 &nbsp; &nbsp; &nbsp; &nbsp;
