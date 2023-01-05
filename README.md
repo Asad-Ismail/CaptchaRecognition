@@ -3,7 +3,7 @@
 The contribution of this is work is follows
 
 1) We present custom Captcha Dataset with 5 characters per captcha
-2) Train the Deep learning model for Captcha recognition
+2) Trained the Deep learning model for Captcha recognition
 3) Deploy the resulting model to read Captchas and automate the appointment system
 
 ## Dataset
