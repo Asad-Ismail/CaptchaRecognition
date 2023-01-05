@@ -11,10 +11,16 @@ The contribution of this is work is follows
 You can download the 5 digit Captcha dataset from this link 
 Few examples od datset is shown below
 <p align="center">
-  <img alt="Light" src="vis_imgs/6mn8n.png" width="45%">
+  <img alt="Light" src="vis_imgs/6mn8n.png" width="25%">
 &nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Dark" src="vis_imgs/8eggg.png" width="45%">
+  <img alt="Dark" src="vis_imgs/8eggg.png" width="25%">
 </p>
+<p align="center">
+  <img alt="Light" src="vis_imgs/be3bp.png" width="25%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Dark" src="vis_imgs/bw44w.png" width="25%">
+</p>
+
 
 https://drive.google.com/drive/folders/1NS9CBTT-bu7Uegc6t2jn3Xg3m8iUtsZz?usp=sharing
 
