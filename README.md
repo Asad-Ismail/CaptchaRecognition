@@ -20,6 +20,11 @@ Few examples of the dataset are shown below
 &nbsp; &nbsp; &nbsp; &nbsp;
   <img alt="Dark" src="vis_imgs/bw44w.png" width="25%">
 </p>
+<p align="center">
+  <img alt="Light" src="vis_imgs/pgwnp.png" width="25%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Dark" src="vis_imgs/8n4n8.png" width="25%">
+</p>
 
 
 https://drive.google.com/drive/folders/1NS9CBTT-bu7Uegc6t2jn3Xg3m8iUtsZz?usp=sharing
