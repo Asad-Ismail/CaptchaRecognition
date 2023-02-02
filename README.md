@@ -2,9 +2,15 @@
  
 The contribution of this is work is follows
 
-1) We present custom Captcha Dataset with 5 characters per captcha
+1) We present custom Captcha Dataset with 6 characters per captcha
 2) Trained the Deep learning model for Captcha recognition
 3) Deploy the resulting model to read Captchas and automate the appointment system
+
+## Requirements 
+
+1. Install chrome using installchrome.sh
+2. Install chrome driver which is compatible with chrome version. One is present in the repo also but if it incompatible
+3. Install requirement with pip install -r requirements.txt
 
 ## Dataset
 
@@ -26,6 +32,11 @@ Few examples of the dataset are shown below
   <img alt="Dark" src="vis_imgs/8n4n8.png" width="25%">
 </p>
 
+After training on 5 digit dataset we further finetune the model on 6 digit Captcha dataset
+
+<p align="center">
+  <img alt="Light" src="vis_imgs/six_chars.png" width="25%">
+</p>
 
 https://drive.google.com/drive/folders/1NS9CBTT-bu7Uegc6t2jn3Xg3m8iUtsZz?usp=sharing
 
