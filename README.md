@@ -38,7 +38,9 @@ After training on 5 digit dataset we further finetune the model on 6 digit Captc
   <img alt="Light" src="vis_imgs/six_chars.png" width="25%">
 </p>
 
-https://drive.google.com/drive/folders/1NS9CBTT-bu7Uegc6t2jn3Xg3m8iUtsZz?usp=sharing
+Datasets and trained models for (6 char captcha) can be downloaded from below
+
+https://drive.google.com/drive/folders/1NS9CBTT-bu7Uegc6t2jn3Xg3m8iUtsZz?usp=share_link
 
 ## Model Training
 Please see the train_captcha.ipynb notebook to train the captcha recognition model on the given dataset. The model is quite simple using 2 bidirectional LSTM and CTC loss to recgnize captchas. The model has quite low latency and was able to recognize captchas on online test very accuractely
