@@ -1,0 +1,5 @@
+*.tf
+*.hdf5
+*model.tf
+*.tf/*
+*notebooks/.ipynb_checkpoints/*

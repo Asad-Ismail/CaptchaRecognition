@@ -38,10 +38,15 @@ PATH="./chromedriver"
 MAX_TRYS=10
 # For saving captchas for training
 dst_data="./"
-links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324&dateStr=09.08.2022",
-       "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324&dateStr=14.09.2022"]
+## amsterdam
+#links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324",
+#       "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324&dateStr=03.03.2023"]
+# Ismbd
+links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203",
+      "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203&dateStr=03.03.2023"]
 
-
+checkstatus=30
+currtix=0
 
 
 def encode_image(img_path):
@@ -77,9 +82,9 @@ def decode_batch_predictions(pred):
 
 def send_message(subject='Nothing',body="Nothing to Update"):
     # Define email sender and receiver
-    email_sender = ''
-    email_password = ''
-    email_receiver = 'asadismaeel@gmail.com'
+    email_sender = 'asadismaeel@gmail.com'
+    email_password = 'mgfhptlydaoqhhog'
+    email_receiver = 'Kiran_riaz_88@hotmail.com'
     # Set the subject and body of the email
     #subject = 'Appointment Update'
     #body = """
@@ -170,6 +175,8 @@ def getcaptha(link,outfile):
 #for i in range(101,500):
 
 def appointment_call():
+    global currtix
+    global checkstatus
     foundappointment=False
     checked_links=0
     dates=[]
@@ -187,16 +194,20 @@ def appointment_call():
                 foundappointment=True
                 break
         time.sleep(1)
-    ## Send Email to yourself
-    e = datetime.datetime.now()
-    dt=f"{e.day}/{e.month}/{e.year}"
-    tm=f"{e.hour}:{e.minute}:{e.second}"
-    subject=f"Login Report from {dt}---{tm}, Result={foundappointment} Dates are {' '.join(dates)}"
-    body=f"Checked Links {checked_links}"
-    send_message(subject=subject,body=body)
+    currtix+=1
+    ## Send Email
+    if foundappointment or currtix>=checkstatus:
+        e = datetime.datetime.now()
+        dt=f"{e.day}/{e.month}/{e.year}"
+        tm=f"{e.hour}:{e.minute}:{e.second}"
+        subject=f"Login Report from {dt}---{tm}, Result={foundappointment} Dates are {' '.join(dates)}"
+        body=f"Checked {checked_links} Months for appointment"
+        send_message(subject=subject,body=body)
+        # reset currtix
+        currtix=0
     
     
 if __name__=="__main__":
     while True:
         appointment_call()
-        sleep(600)
+        sleep(60*2)
