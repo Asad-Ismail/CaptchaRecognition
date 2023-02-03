@@ -35,7 +35,7 @@ Few examples of the dataset are shown below
 After training on 5 digit dataset we further finetune the model on 6 digit Captcha dataset
 
 <p align="center">
-  <img alt="Light" src="vis_imgs/six_chars.png" width="50%">
+  <img alt="Light" src="vis_imgs/six_chars.png" width="100%">
 </p>
 
 Datasets and trained models for (6 char captcha) can be downloaded from below
