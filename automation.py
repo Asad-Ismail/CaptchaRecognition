@@ -39,11 +39,11 @@ MAX_TRYS=10
 # For saving captchas for training
 dst_data="./"
 ## amsterdam
-#links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324",
-#       "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324&dateStr=03.03.2023"]
+links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324",
+       "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324&dateStr=03.03.2023"]
 # Ismbd
-links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203",
-      "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203&dateStr=03.03.2023"]
+#links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203",
+#      "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203&dateStr=03.03.2023"]
 
 checkstatus=30
 currtix=0
@@ -69,9 +69,7 @@ def encode_image(img_path):
 def decode_batch_predictions(pred):
     input_len = np.ones(pred.shape[0]) * pred.shape[1]
     # Use greedy search. For complex tasks, you can use beam search
-    results = keras.backend.ctc_decode(pred, input_length=input_len, greedy=True)[0][0][
-        :, :max_length
-    ]
+    results = keras.backend.ctc_decode(pred, input_length=input_len, greedy=True)[0][0][:, :max_length]
     # Iterate over the results and get back the text
     output_text = []
     for res in results:
@@ -80,11 +78,12 @@ def decode_batch_predictions(pred):
     return output_text
 
 
-def send_message(subject='Nothing',body="Nothing to Update"):
+def send_message(subject='Nothing',body="Nothing to Update",subtype=None):
     # Define email sender and receiver
     email_sender = 'asadismaeel@gmail.com'
     email_password = 'mgfhptlydaoqhhog'
-    email_receiver = 'Kiran_riaz_88@hotmail.com'
+    #email_receiver = 'Kiran_riaz_88@hotmail.com'
+    email_receiver ='asadismaeel@gmail.com'
     # Set the subject and body of the email
     #subject = 'Appointment Update'
     #body = """
@@ -94,7 +93,10 @@ def send_message(subject='Nothing',body="Nothing to Update"):
     em['From'] = email_sender
     em['To'] = email_receiver
     em['Subject'] = subject
-    em.set_content(body)
+    if subtype:
+        em.set_content(body,subtype=subtype)
+    else:
+        em.set_content(body,subtype=subtype)
     # Add SSL (layer of security)
     context = ssl.create_default_context()
     # Log in and send the email
@@ -129,6 +131,8 @@ def getcaptha(link,outfile):
         driver = webdriver.Chrome(PATH,options=op)
         #driver=webdriver.Chrome(PATH)
         driver.get(link)
+        ## In case the code raise exception write it
+        content=driver.page_source
         with open(outfile, 'wb') as file:
             file.write(driver.find_element(By.XPATH,"//form[@id='appointment_captcha_month']/div/captcha/div").screenshot_as_png)
         ## Crop unneccassy part
@@ -141,17 +145,12 @@ def getcaptha(link,outfile):
         content=driver.page_source
         status=find_text(content=content,txt="Please enter here the text you see")
         assert status==True, "WebPage Could Not be Found!!"
-
         ## Run the model and get prediction as string in outstr
         #driver.close()
         #outstr=input("Enter the Captcha now!!")
         tf_img=encode_image(outfile)
         preds = prediction_model.predict(tf_img)
         outstr = decode_batch_predictions(preds)[0]
-        #print(pred_texts)
-        #print(f"You entered {inp}")
-        #print(f"Getting Text Box")
-
         textbox=driver.find_element(By.ID,"appointment_captcha_month_captchaText")
         textbox.send_keys(outstr)
         sleep(3)
@@ -159,15 +158,11 @@ def getcaptha(link,outfile):
         submit = driver.find_element(By.ID,"appointment_captcha_month_appointment_showMonth")
         submit.click()
         sleep(2)
-        #content=""
         content=driver.page_source
-        #print(content)
         status=find_text(content=content,txt="Please enter here the text you see")
         foundappoint=find_text(content=content,txt="Unfortunately, there are no appointments")
         sleep(5)
         # status 0 capthca read failes, 1 did not found an appointment, 2 found an appointment
-        #print(content)
-        #print(f"Intital status are {status}, {foundappoint}")
         if status:
             return 0,"None"
         if not status and foundappoint:
@@ -183,7 +178,8 @@ def getcaptha(link,outfile):
                 all_dates.append(tags.text.strip())
             #print(f"All dates are {all_dates}")
             return 2,' '.join(all_dates)
-    except Exception as e:
+    except Exception as er:
+        print(f"Error exception is {er}")
         save_page(content,err=True)
         return 1,"None"
     
@@ -218,8 +214,14 @@ def appointment_call():
         dt=f"{e.day}/{e.month}/{e.year}"
         tm=f"{e.hour}:{e.minute}:{e.second}"
         subject=f"Login Report from {dt}---{tm}, Result={foundappointment} Dates are {' '.join(dates)}"
-        body=f"Checked {checked_links} Months for appointment"
-        send_message(subject=subject,body=body)
+        if foundappointment:
+            HtmlFile = open('found.html', 'r', encoding='utf-8')
+            body = HtmlFile.read() 
+            HtmlFile.close()
+            email.set_content(subject=subject,body=body,subtype='html')
+        else:
+            body=f"Checked {checked_links} Months for appointment"
+            send_message(subject=subject,body=body)
         # reset currtix
         currtix=0
     
