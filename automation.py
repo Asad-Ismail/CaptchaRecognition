@@ -39,11 +39,11 @@ MAX_TRYS=10
 # For saving captchas for training
 dst_data="./"
 ## amsterdam
-links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324",
-       "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324&dateStr=03.03.2023"]
+#links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324",
+#       "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324&dateStr=03.03.2023"]
 # Ismbd
-#links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203",
-#      "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203&dateStr=03.03.2023"]
+links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203",
+      "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203&dateStr=03.03.2023"]
 
 checkstatus=30
 currtix=0
@@ -82,8 +82,8 @@ def send_message(subject='Nothing',body="Nothing to Update",subtype=None):
     # Define email sender and receiver
     email_sender = 'asadismaeel@gmail.com'
     email_password = 'mgfhptlydaoqhhog'
-    #email_receiver = 'Kiran_riaz_88@hotmail.com'
-    email_receiver ='asadismaeel@gmail.com'
+    email_receiver = 'Kiran_riaz_88@hotmail.com'
+    #email_receiver ='asadismaeel@gmail.com'
     # Set the subject and body of the email
     #subject = 'Appointment Update'
     #body = """
@@ -96,7 +96,7 @@ def send_message(subject='Nothing',body="Nothing to Update",subtype=None):
     if subtype:
         em.set_content(body,subtype=subtype)
     else:
-        em.set_content(body,subtype=subtype)
+        em.set_content(body)
     # Add SSL (layer of security)
     context = ssl.create_default_context()
     # Log in and send the email
@@ -153,7 +153,7 @@ def getcaptha(link,outfile):
         outstr = decode_batch_predictions(preds)[0]
         textbox=driver.find_element(By.ID,"appointment_captcha_month_captchaText")
         textbox.send_keys(outstr)
-        sleep(3)
+        sleep(5)
         print(f"Sending predicted Captchas!!")
         submit = driver.find_element(By.ID,"appointment_captcha_month_appointment_showMonth")
         submit.click()
@@ -180,7 +180,12 @@ def getcaptha(link,outfile):
             return 2,' '.join(all_dates)
     except Exception as er:
         print(f"Error exception is {er}")
-        save_page(content,err=True)
+        if content:
+            print(f"Saving Exception Content")
+            save_page(content,err=True)
+        else:
+            print(f"Warning!!"*20)
+            print("Content is None")
         return 1,"None"
     
 
