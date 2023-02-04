@@ -218,7 +218,7 @@ def appointment_call():
             HtmlFile = open('found.html', 'r', encoding='utf-8')
             body = HtmlFile.read() 
             HtmlFile.close()
-            email.set_content(subject=subject,body=body,subtype='html')
+            send_message(subject=subject,body=body,subtype='html')
         else:
             body=f"Checked {checked_links} Months for appointment"
             send_message(subject=subject,body=body)
