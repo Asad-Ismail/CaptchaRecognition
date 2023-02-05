@@ -82,7 +82,7 @@ def send_message(subject='Nothing',body="Nothing to Update",subtype=None):
     # Define email sender and receiver
     email_sender = 'asadismaeel@gmail.com'
     email_password = 'mgfhptlydaoqhhog'
-    email_receiver = 'Kiran_riaz_88@hotmail.com'
+    email_receiver = ['Kiran_riaz_88@hotmail.com','Omar.rana87@outlook.com']
     #email_receiver ='asadismaeel@gmail.com'
     # Set the subject and body of the email
     #subject = 'Appointment Update'
@@ -161,7 +161,6 @@ def getcaptha(link,outfile):
         content=driver.page_source
         status=find_text(content=content,txt="Please enter here the text you see")
         foundappoint=find_text(content=content,txt="Unfortunately, there are no appointments")
-        sleep(5)
         # status 0 capthca read failes, 1 did not found an appointment, 2 found an appointment
         if status:
             return 0,"None"
