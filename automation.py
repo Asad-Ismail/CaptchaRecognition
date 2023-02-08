@@ -124,6 +124,8 @@ def save_page(content,err=False):
         
 
 def getcaptha(link,outfile):
+    ## Intially no content in the webpage
+    content=None
     try:
         # To run wothout opening the chrome
         op = webdriver.ChromeOptions()
