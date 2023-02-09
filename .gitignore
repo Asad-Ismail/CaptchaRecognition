@@ -3,3 +3,4 @@
 *model.tf
 *.tf/*
 *notebooks/.ipynb_checkpoints/*
+*.zip
