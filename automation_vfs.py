@@ -199,8 +199,8 @@ def appointment_call():
         HtmlFile.close()
         send_message(subject=subject,body=body,subtype='html')
     else:
-        body=f"Checked {checked_links}"
-        send_message(subject=subject,body=body)
+        #body=f"Checked {checked_links}"
+        #send_message(subject=subject,body=body)
         # reset currtix
         currtix=0
     
