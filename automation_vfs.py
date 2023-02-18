@@ -38,7 +38,7 @@ def send_message(subject='Nothing',body="Nothing to Update",subtype=None):
     # Define email sender and receiver
     email_sender = 'asadismaeel@gmail.com'
     email_password = 'mgfhptlydaoqhhog'
-    email_receiver = ['asadismaeel@gmail.com','kiranriazart@gmail.com']
+    email_receiver = ['asadismaeel@gmail.com']
     #email_receiver ='asadismaeel@gmail.com'
     # Set the subject and body of the email
     #subject = 'Appointment Update'
@@ -146,7 +146,8 @@ def checkLink(link):
         option_xpath = '//mat-option[contains(.,"Family And Friends Visit")]'
         option_element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, option_xpath)))
         option_element.click()
-        sleep(sleeptime)
+        # give more time to final selection for system to find
+        sleep(sleeptime+20)
 
         content=driver.page_source
         save_page(content,name="content5.html")
