@@ -186,11 +186,11 @@ def appointment_call():
     currtix+=1
     ## Send Email
     #if foundappointment or currtix>=checkstatus:
+    subject=f"VFS Report from {dt}--{tm}, Result={foundappointment}"
     if foundappointment:
         e = datetime.datetime.now()
         dt=f"{e.day}/{e.month}/{e.year}"
         tm=f"{e.hour}:{e.minute}:{e.second}"
-        subject=f"VFS Report from {dt}--{tm}, Result={foundappointment}"
         HtmlFile = open(f'{debug_dir}/content5.html', 'r', encoding='utf-8')
         body = HtmlFile.read() 
         HtmlFile.close()
