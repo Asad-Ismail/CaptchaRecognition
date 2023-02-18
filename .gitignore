@@ -4,3 +4,4 @@
 *.tf/*
 *notebooks/.ipynb_checkpoints/*
 *.zip
+*.ipynb_checkpoints/*

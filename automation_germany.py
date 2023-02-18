@@ -82,7 +82,7 @@ def send_message(subject='Nothing',body="Nothing to Update",subtype=None):
     # Define email sender and receiver
     email_sender = 'asadismaeel@gmail.com'
     email_password = 'mgfhptlydaoqhhog'
-    email_receiver = ['Kiran_riaz_88@hotmail.com','Omar.rana87@outlook.com']
+    email_receiver = ['Kiran_riaz_88@hotmail.com','kiranriazart@gmail.com','Omar.rana87@outlook.com']
     #email_receiver ='asadismaeel@gmail.com'
     # Set the subject and body of the email
     #subject = 'Appointment Update'
@@ -212,10 +212,11 @@ def appointment_call():
                 checked_links+=1
                 foundappointment=True
                 break
-        time.sleep(1)
+        #time.sleep(1)
     currtix+=1
     ## Send Email
-    if foundappointment or currtix>=checkstatus:
+    #if foundappointment or currtix>=checkstatus:
+    if foundappointment and currdate:
         e = datetime.datetime.now()
         dt=f"{e.day}/{e.month}/{e.year}"
         tm=f"{e.hour}:{e.minute}:{e.second}"
