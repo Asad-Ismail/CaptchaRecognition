@@ -28,3 +28,4 @@ Total params: 433,886
 Trainable params: 433,886
 Non-trainable params: 0
 _________________________________________________________________
+Sending predicted Captchas!!
