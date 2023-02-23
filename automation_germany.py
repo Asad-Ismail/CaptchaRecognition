@@ -112,14 +112,14 @@ def find_text(content,txt):
     else:
         return False
     
-def save_page(content,err=False):
+def save_page(content,name="content.html",err=False):
     page = content.encode('utf-8')
     if err:
-        file_ = open('err.html', 'wb')
+        file_ = open('err.html','wb')
         file_.write(page)
         file_.close()
     else:
-        file_ = open('found.html', 'wb')
+        file_ = open(name), 'wb')
         file_.write(page)
         file_.close()
         
@@ -173,15 +173,15 @@ def getcaptha(link,outfile):
         content=driver.page_source
         status=find_text(content=content,txt="Please enter here the text you see")
         foundappoint=find_text(content=content,txt="Unfortunately, there are no appointments")
-        save_page(content,err=False)
+        save_page(content)
         # status 0 capthca read failes, 1 did not found an appointment, 2 found an appointment
         if status:
             return 0,"None"
         if not status and foundappoint:
             return 1,"None"
         if not status and not foundappoint:
-            save_page(content)
-            soup=BeautifulSoup(content,"html.parser")
+            save_page(content,"found.html")
+            soup=BeautifulSoup(content,name="html.parser")
             heading_tags = ["h4"]
             all_dates=[]
             for tags in soup.find_all(heading_tags):
@@ -219,8 +219,10 @@ def appointment_call():
                 foundappointment=True
                 break
     currtix+=1
+    print(f"Current Index is {currtix}")
     ## Send Email
     if foundappointment or currtix>=checkstatus:
+        print(f"Sending Email!!")
         e = datetime.datetime.now()
         dt=f"{e.day}/{e.month}/{e.year}"
         tm=f"{e.hour}:{e.minute}:{e.second}"

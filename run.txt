@@ -1,0 +1,475 @@
+Model: "model"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+image (InputLayer)           [(None, 300, 50, 1)]      0         
+_________________________________________________________________
+Conv1 (Conv2D)               (None, 300, 50, 32)       320       
+_________________________________________________________________
+pool1 (MaxPooling2D)         (None, 150, 25, 32)       0         
+_________________________________________________________________
+Conv2 (Conv2D)               (None, 150, 25, 64)       18496     
+_________________________________________________________________
+pool2 (MaxPooling2D)         (None, 75, 12, 64)        0         
+_________________________________________________________________
+reshape (Reshape)            (None, 75, 768)           0         
+_________________________________________________________________
+dense1 (Dense)               (None, 75, 64)            49216     
+_________________________________________________________________
+dropout (Dropout)            (None, 75, 64)            0         
+_________________________________________________________________
+bidirectional (Bidirectional (None, 75, 256)           197632    
+_________________________________________________________________
+bidirectional_1 (Bidirection (None, 75, 128)           164352    
+_________________________________________________________________
+dense2 (Dense)               (None, 75, 30)            3870      
+=================================================================
+Total params: 433,886
+Trainable params: 433,886
+Non-trainable params: 0
+_________________________________________________________________
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 1
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 2
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 3
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 4
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 5
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 6
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 7
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 8
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 9
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 10
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 11
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 12
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 13
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 14
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 15
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 16
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 17
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 18
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 19
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 20
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 21
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 22
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 23
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 24
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 25
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 26
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 27
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 28
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 29
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 30
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 31
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 32
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 33
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 34
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 35
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 36
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 37
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 38
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 39
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 40
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 41
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 42
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 43
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 44
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 45
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 46
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 47
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 48
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 49
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 50
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 51
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 52
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 53
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 54
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 55
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 56
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 57
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 58
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 59
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 60
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 61
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 62
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 63
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 64
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 65
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 66
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 67
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 68
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 69
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 70
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 71
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 72
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 73
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 74
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 75
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 76
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 77
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 78
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 79
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 80
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 81
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 82
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 83
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 84
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 85
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 86
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 87
+Sending Email!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 1
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 2
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 3
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 4
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 5
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 6
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 7
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 8
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 9
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 10
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 11
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 12
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 13
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 14
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 15
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 16
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 17
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Sending predicted Captchas!!
+Current Index is 18
+Sending predicted Captchas!!
+Sending predicted Captchas!!
