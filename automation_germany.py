@@ -43,9 +43,10 @@ dst_data="./"
 #       "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324&dateStr=03.03.2023"]
 # Ismbd
 links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203",
-      "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203&dateStr=03.03.2023"]
+      "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203&dateStr=03.03.2023",
+      "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203&dateStr=03.05.2023"]
 
-checkstatus=30
+checkstatus=100
 currtix=0
 
 
@@ -78,11 +79,11 @@ def decode_batch_predictions(pred):
     return output_text
 
 
-def send_message(subject='Nothing',body="Nothing to Update",subtype=None):
+def send_message(receipents,subject='Nothing',body="Nothing to Update",subtype=None):
     # Define email sender and receiver
     email_sender = 'asadismaeel@gmail.com'
     email_password = 'mgfhptlydaoqhhog'
-    email_receiver = ['Kiran_riaz_88@hotmail.com','kiranriazart@gmail.com','Omar.rana87@outlook.com']
+    email_receiver = receipents
     #email_receiver ='asadismaeel@gmail.com'
     # Set the subject and body of the email
     #subject = 'Appointment Update'
@@ -129,7 +130,16 @@ def getcaptha(link,outfile):
     try:
         # To run wothout opening the chrome
         op = webdriver.ChromeOptions()
-        op.add_argument('headless')
+        op.add_argument('--no-sandbox')
+        op.add_argument('--disable-dev-shm-usage')
+        op.add_argument("--headless")
+        op.add_argument("--incognito")
+        user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
+        op.add_argument(f'user-agent={user_agent}')
+        driver = webdriver.Chrome(PATH,options=op)
+        driver.delete_all_cookies()
+        #op = webdriver.ChromeOptions()
+        #op.add_argument('headless')
         driver = webdriver.Chrome(PATH,options=op)
         #driver=webdriver.Chrome(PATH)
         driver.get(link)
@@ -169,7 +179,6 @@ def getcaptha(link,outfile):
         if not status and foundappoint:
             return 1,"None"
         if not status and not foundappoint:
-            #print(content)
             save_page(content)
             soup=BeautifulSoup(content,"html.parser")
             heading_tags = ["h4"]
@@ -189,10 +198,6 @@ def getcaptha(link,outfile):
             print("Content is None")
         return 1,"None"
     
-
-
-#for i in range(101,500):
-
 def appointment_call():
     global currtix
     global checkstatus
@@ -212,11 +217,9 @@ def appointment_call():
                 checked_links+=1
                 foundappointment=True
                 break
-        #time.sleep(1)
     currtix+=1
     ## Send Email
-    #if foundappointment or currtix>=checkstatus:
-    if foundappointment and currdate:
+    if foundappointment or currtix>=checkstatus:
         e = datetime.datetime.now()
         dt=f"{e.day}/{e.month}/{e.year}"
         tm=f"{e.hour}:{e.minute}:{e.second}"
@@ -225,10 +228,12 @@ def appointment_call():
             HtmlFile = open('found.html', 'r', encoding='utf-8')
             body = HtmlFile.read() 
             HtmlFile.close()
-            send_message(subject=subject,body=body,subtype='html')
+            email_receiver = ['Kiran_riaz_88@hotmail.com','kiranriazart@gmail.com','Omar.rana87@outlook.com',"bismairfanmalik13@gmail.com"]
+            send_message(email_receiver,subject=subject,body=body,subtype='html')
         else:
             body=f"Checked {checked_links} Months for appointment"
-            send_message(subject=subject,body=body)
+            email_receiver = ['asadismaeel@gmail.com']
+            send_message(email_receiver,subject=subject,body=body,subtype=None)
         # reset currtix
         currtix=0
     
@@ -236,4 +241,4 @@ def appointment_call():
 if __name__=="__main__":
     while True:
         appointment_call()
-        sleep(60*2)
+        sleep(12)
