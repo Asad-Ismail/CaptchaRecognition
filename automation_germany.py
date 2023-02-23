@@ -173,6 +173,7 @@ def getcaptha(link,outfile):
         content=driver.page_source
         status=find_text(content=content,txt="Please enter here the text you see")
         foundappoint=find_text(content=content,txt="Unfortunately, there are no appointments")
+        save_page(content,err=False)
         # status 0 capthca read failes, 1 did not found an appointment, 2 found an appointment
         if status:
             return 0,"None"
