@@ -119,7 +119,7 @@ def save_page(content,name="content.html",err=False):
         file_.write(page)
         file_.close()
     else:
-        file_ = open(name), 'wb')
+        file_ = open(name,'wb')
         file_.write(page)
         file_.close()
         
