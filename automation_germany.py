@@ -40,7 +40,7 @@ MAX_TRYS=10
 dst_data="./"
 ## amsterdam
 #links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324",
-#       "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324&dateStr=03.03.2023"]
+#       "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=amst&realmId=1113&categoryId=2324&dateStr=03.05.2023"]
 # Ismbd
 links=["https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203",
       "https://service2.diplo.de/rktermin/extern/appointment_showMonth.do?locationCode=isla&realmId=108&categoryId=203&dateStr=03.03.2023",
@@ -165,30 +165,24 @@ def getcaptha(link,outfile):
         outstr = decode_batch_predictions(preds)[0]
         textbox=driver.find_element(By.ID,"appointment_captcha_month_captchaText")
         textbox.send_keys(outstr)
-        sleep(5)
+        sleep(2)
         print(f"Sending predicted Captchas!!")
         submit = driver.find_element(By.ID,"appointment_captcha_month_appointment_showMonth")
         submit.click()
         sleep(2)
         content=driver.page_source
         status=find_text(content=content,txt="Please enter here the text you see")
-        foundappoint=find_text(content=content,txt="Unfortunately, there are no appointments")
+        foundappoint=find_text(content=content,txt="Appointments are available")
         save_page(content)
         # status 0 capthca read failes, 1 did not found an appointment, 2 found an appointment
         if status:
             return 0,"None"
-        if not status and foundappoint:
-            return 1,"None"
         if not status and not foundappoint:
+            return 1,"None"
+        if not status and foundappoint:
             save_page(content,"found.html")
-            soup=BeautifulSoup(content,name="html.parser")
-            heading_tags = ["h4"]
-            all_dates=[]
-            for tags in soup.find_all(heading_tags):
-                #print(tags.name + ' -> ' + tags.text.strip())
-                all_dates.append(tags.text.strip())
             #print(f"All dates are {all_dates}")
-            return 2,' '.join(all_dates)
+            return 2,'Some'
     except Exception as er:
         print(f"Error exception is {er}")
         if content:
@@ -228,9 +222,11 @@ def appointment_call():
         tm=f"{e.hour}:{e.minute}:{e.second}"
         subject=f"Login Report from {dt}---{tm}, Result={foundappointment} Dates are {' '.join(dates)}"
         if foundappointment:
+            print(f"Sending Alert!!")
             HtmlFile = open('found.html', 'r', encoding='utf-8')
             body = HtmlFile.read() 
             HtmlFile.close()
+            #email_receiver = ['asadismaeel@gmail.com']
             email_receiver = ['Kiran_riaz_88@hotmail.com','kiranriazart@gmail.com','Omar.rana87@outlook.com',"bismairfanmalik13@gmail.com"]
             send_message(email_receiver,subject=subject,body=body,subtype='html')
         else:
@@ -244,4 +240,4 @@ def appointment_call():
 if __name__=="__main__":
     while True:
         appointment_call()
-        sleep(12)
+        sleep(6)
