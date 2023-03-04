@@ -20,6 +20,7 @@ from collections import Counter
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
+import time
 
 img_width = 300
 img_height = 50
@@ -130,14 +131,14 @@ def getcaptha(link,outfile):
     try:
         # To run wothout opening the chrome
         op = webdriver.ChromeOptions()
-        op.add_argument('--no-sandbox')
-        op.add_argument('--disable-dev-shm-usage')
+        #op.add_argument('--no-sandbox')
+        #op.add_argument('--disable-dev-shm-usage')
         op.add_argument("--headless")
         op.add_argument("--incognito")
-        user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
-        op.add_argument(f'user-agent={user_agent}')
+        #user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
+        #op.add_argument(f'user-agent={user_agent}')
         driver = webdriver.Chrome(PATH,options=op)
-        driver.delete_all_cookies()
+        #driver.delete_all_cookies()
         #op = webdriver.ChromeOptions()
         #op.add_argument('headless')
         driver = webdriver.Chrome(PATH,options=op)
@@ -165,11 +166,11 @@ def getcaptha(link,outfile):
         outstr = decode_batch_predictions(preds)[0]
         textbox=driver.find_element(By.ID,"appointment_captcha_month_captchaText")
         textbox.send_keys(outstr)
-        sleep(2)
+        sleep(1)
         print(f"Sending predicted Captchas!!")
         submit = driver.find_element(By.ID,"appointment_captcha_month_appointment_showMonth")
         submit.click()
-        sleep(2)
+        sleep(1)
         content=driver.page_source
         status=find_text(content=content,txt="Please enter here the text you see")
         foundappoint=find_text(content=content,txt="Appointments are available")
@@ -191,7 +192,7 @@ def getcaptha(link,outfile):
         else:
             print(f"Warning!!"*20)
             print("Content is None")
-        return 1,"None"
+        return 0,"None"
     
 def appointment_call():
     global currtix
@@ -202,6 +203,7 @@ def appointment_call():
     for link in links:
         for _ in range(MAX_TRYS):
             status,currdate=getcaptha(link,os.path.join(dst_data,"test"+".png"))
+            print(f"Returned status is {status}")
             if currdate!="None":
                 dates.append(currdate)
             #print(status)
@@ -239,5 +241,8 @@ def appointment_call():
     
 if __name__=="__main__":
     while True:
+        start=time.monotonic()
         appointment_call()
-        sleep(6)
+        end=time.monotonic()
+        print(f"Time to check all links is {(end-start)/60} minutes")
+        #sleep(6)
