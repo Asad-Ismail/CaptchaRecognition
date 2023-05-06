@@ -1,16 +1,19 @@
-# CaptchaRecognition Dataset and Model
- 
-The contribution of this is work is follows
 
-1) We present custom Captcha Dataset with 6 characters per captcha
-2) Trained the Deep learning model for Captcha recognition
-3) Deploy the resulting model to read Captchas and automate the appointment system
+# Captcha Recognition Dataset/Model and automation
 
-## Requirements 
+This project presents a custom Captcha dataset and deep learning model for Captcha recognition, along with a script to automate appointment systems using the trained model.
 
-1. Install chrome using installchrome.sh
-2. Install chrome driver which is compatible with chrome version. One is present in the repo also but if it incompatible
-3. Install requirement with pip install -r requirements.txt
+## Key Contributions
+
+- A custom Captcha dataset with 6 characters per captcha
+- A deep learning model for Captcha recognition
+- Deployment of the model to read Captchas and automate appointment systems
+
+## Requirements
+
+1. Install Chrome using the provided `installchrome.sh` script.
+2. Install a compatible Chrome driver. A driver is included in the repository, but if it is incompatible, download and install the appropriate version.
+3. Install the required packages using: `pip install -r requirements.txt`.
 
 ## Dataset
 
