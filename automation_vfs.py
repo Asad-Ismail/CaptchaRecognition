@@ -37,7 +37,7 @@ os.makedirs(debug_dir,exist_ok=True)
 def send_message(subject='Nothing',body="Nothing to Update",subtype=None):
     # Define email sender and receiver
     email_sender = 'asadismaeel@gmail.com'
-    email_password = 'mgfhptlydaoqhhog'
+    email_password = ''
     email_receiver = ['asadismaeel@gmail.com']
     #email_receiver ='asadismaeel@gmail.com'
     # Set the subject and body of the email
