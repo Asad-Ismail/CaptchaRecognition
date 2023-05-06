@@ -52,6 +52,9 @@ https://drive.google.com/drive/folders/1NS9CBTT-bu7Uegc6t2jn3Xg3m8iUtsZz?usp=sha
 Refer to the `train_captcha.ipynb` notebook for instructions on training the Captcha recognition model with the provided dataset. The model architecture utilizes two bidirectional LSTMs and CTC loss for Captcha recognition. It has low latency and demonstrates high accuracy in online tests.
 
 ## Automatic Appointment System
-
+This is the only thing you need if you just want to crack captcha to get appointment 
 The `automation.py` script leverages the trained Captcha recognition model to identify Captchas on websites and verify the availability of appointments. If an appointment is available, it sends an email notification to the specified recipient. While the automation is tailored to a specific type of website, it can serve as a blueprint for creating appointment or alert systems for other websites and services.
+
+Note!!
+Change links and email_sender password and email_receivers to the desired values in automation_germany.py
 
