@@ -3,6 +3,7 @@
 
 This project presents a custom Captcha dataset and deep learning model for Captcha recognition, along with a script to automate appointment systems using the trained model.
 
+
 ## Key Contributions
 
 - A custom Captcha dataset with 6 characters per captcha
@@ -17,7 +18,8 @@ This project presents a custom Captcha dataset and deep learning model for Captc
 
 ## Dataset
 
-You can download the 5 digit Captcha dataset from this link 
+You can download the 5 digit Captcha dataset from link below 
+
 Few examples of the dataset are shown below
 <p align="center">
   <img alt="Light" src="vis_imgs/6mn8n.png" width="25%">
@@ -46,7 +48,10 @@ Datasets and trained models for (6 char captcha) can be downloaded from below
 https://drive.google.com/drive/folders/1NS9CBTT-bu7Uegc6t2jn3Xg3m8iUtsZz?usp=share_link
 
 ## Model Training
-Please see the train_captcha.ipynb notebook to train the captcha recognition model on the given dataset. The model is quite simple using 2 bidirectional LSTM and CTC loss to recgnize captchas. The model has quite low latency and was able to recognize captchas on online test very accuractely
 
-## Automatic appointment system
-The script automation.py uses the trained captcha recognition model and use it to recognize captchas on website and check if the appointment is available. If the appointment is availbale it sends the email to the receiver. The automation is done particularly for one type of website but can be used as blue print to automate appointmet/alret system for any other website/service.
+Refer to the `train_captcha.ipynb` notebook for instructions on training the Captcha recognition model with the provided dataset. The model architecture utilizes two bidirectional LSTMs and CTC loss for Captcha recognition. It has low latency and demonstrates high accuracy in online tests.
+
+## Automatic Appointment System
+
+The `automation.py` script leverages the trained Captcha recognition model to identify Captchas on websites and verify the availability of appointments. If an appointment is available, it sends an email notification to the specified recipient. While the automation is tailored to a specific type of website, it can serve as a blueprint for creating appointment or alert systems for other websites and services.
+
