@@ -53,7 +53,7 @@ Refer to the `train_captcha.ipynb` notebook for instructions on training the Cap
 
 ## Automatic Appointment System
 This is the only thing you need if you just want to crack captcha to get appointment 
-The `automation.py` script leverages the trained Captcha recognition model to identify Captchas on websites and verify the availability of appointments. If an appointment is available, it sends an email notification to the specified recipient. While the automation is tailored to a specific type of website, it can serve as a blueprint for creating appointment or alert systems for other websites and services.
+The `automation_germany.py or automation_vfs.py` script leverages the trained Captcha recognition model to identify Captchas on websites and verify the availability of appointments. If an appointment is available, it sends an email notification to the specified recipient. While the automation is tailored to a specific type of website, it can serve as a blueprint for creating appointment or alert systems for other websites and services.
 
 Note!!
 Change links and email_sender password and email_receivers to the desired values in automation_germany.py
